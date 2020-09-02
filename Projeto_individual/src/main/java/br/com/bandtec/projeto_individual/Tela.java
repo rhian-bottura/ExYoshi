@@ -6,6 +6,7 @@
 package br.com.bandtec.projeto_individual;
 
 import java.awt.Color;
+import java.util.Random;
 
 /**
  *
@@ -23,6 +24,17 @@ public class Tela extends javax.swing.JFrame {
     Double minCpu = 0.0;
     Double minDisco = 0.0;
     Double minMem = 0.0;
+    Double cpu = 0.0;
+    Double disco = 0.0;
+    Double memoria = 0.0;
+    Random rand = new Random();
+     public void aleatorio(){
+        cpu = (rand.nextDouble() * 3) + 1;
+        disco = (rand.nextDouble() * 998) + 1;
+        memoria = (rand.nextDouble() * 7) + 1;
+        
+        
+    }
    
     
       
@@ -49,7 +61,6 @@ public class Tela extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         pbCPU = new javax.swing.JProgressBar();
         tfCpu = new javax.swing.JLabel();
-        porCpu = new javax.swing.JLabel();
         lbMinCPU = new javax.swing.JLabel();
         lbMedCPU = new javax.swing.JLabel();
         lbMaxCPU = new javax.swing.JLabel();
@@ -57,7 +68,6 @@ public class Tela extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         pbDisco = new javax.swing.JProgressBar();
         tfDisco = new javax.swing.JLabel();
-        porDisco = new javax.swing.JLabel();
         lbMinDisco = new javax.swing.JLabel();
         lbMedDisco = new javax.swing.JLabel();
         lbMaxDisco = new javax.swing.JLabel();
@@ -67,7 +77,6 @@ public class Tela extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         pbMem = new javax.swing.JProgressBar();
         tfMem = new javax.swing.JLabel();
-        porMem = new javax.swing.JLabel();
         lbMaxMem = new javax.swing.JLabel();
         lbMinMem = new javax.swing.JLabel();
         lbMedMem = new javax.swing.JLabel();
@@ -86,6 +95,7 @@ public class Tela extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -102,9 +112,7 @@ public class Tela extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setText("CPU");
 
-        tfCpu.setText("0 GHz");
-
-        porCpu.setText("0.0%");
+        tfCpu.setText("Atual: 0 GHz");
 
         lbMinCPU.setText("Mínimo : 0 GHz");
 
@@ -121,19 +129,15 @@ public class Tela extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(porCpu)
-                                    .addComponent(tfCpu)
-                                    .addComponent(lbMinCPU)
-                                    .addComponent(lbMedCPU)
-                                    .addComponent(lbMaxCPU)
-                                    .addComponent(jLabel7))))
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                .addComponent(tfCpu)
+                                .addComponent(lbMinCPU)
+                                .addComponent(lbMedCPU)
+                                .addComponent(lbMaxCPU)
+                                .addComponent(jLabel7)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -150,8 +154,6 @@ public class Tela extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(porCpu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfCpu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMinCPU)
@@ -159,15 +161,13 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(lbMedCPU)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMaxCPU)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        tfDisco.setText("0 GB");
-
-        porDisco.setText("0.0%");
+        tfDisco.setText("Atual: 0 GB");
 
         lbMinDisco.setText("Mínimo: 0 GB");
 
@@ -185,24 +185,25 @@ public class Tela extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pbDisco, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel2))
+                        .addContainerGap()
+                        .addComponent(pbDisco, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(porDisco)
-                            .addComponent(lbMinDisco)
-                            .addComponent(lbMedDisco)
-                            .addComponent(lbMaxDisco)
-                            .addComponent(tfDisco)
-                            .addComponent(jLabel5))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(lbMinDisco)
+                                    .addComponent(lbMedDisco)
+                                    .addComponent(lbMaxDisco)
+                                    .addComponent(tfDisco)
+                                    .addComponent(jLabel5))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,8 +215,6 @@ public class Tela extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(porDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMinDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,7 +222,7 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(lbMedDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMaxDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
+                .addGap(44, 44, 44))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -232,11 +231,9 @@ public class Tela extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel3.setText("Memória");
 
-        pbMem.setForeground(new java.awt.Color(51, 255, 0));
+        pbMem.setForeground(new java.awt.Color(0, 0, 0));
 
-        tfMem.setText("0 GB");
-
-        porMem.setText("0.0%");
+        tfMem.setText("Atual: 0 GB");
 
         lbMaxMem.setText("Máximo: 0 GB");
 
@@ -263,7 +260,6 @@ public class Tela extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(porMem)
                                     .addComponent(lbMinMem)
                                     .addComponent(lbMedMem)
                                     .addComponent(lbMaxMem)
@@ -280,8 +276,6 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(pbMem, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(porMem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfMem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -290,7 +284,7 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(lbMedMem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMaxMem)
-                .addGap(36, 36, 36))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
@@ -324,7 +318,7 @@ public class Tela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -336,33 +330,42 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        v.aleatorio();
+        //Deixa aparecer a porcentagem dentro da barra
+        pbCPU.setStringPainted(true);
+        pbDisco.setStringPainted(true);
+        pbMem.setStringPainted(true);
+        // Método que gera numeros aleatorios
+        aleatorio();
+        // Contador para ajudar a calcular a média de numeros
         Cont++;
-        Double pCpu = v.gerarPor(v.getCpu(), 4.0);
-        Double pDisco = v.gerarPor(v.getDisco(), 999.0);
-        Double pMem = v.gerarPor(v.getMemoria(), 8.0);
-        
+        //Gera a porcentagem para preencher a barra
+        Double pCpu = v.gerarPor(cpu, 4.0);
+        Double pDisco = v.gerarPor(disco, 999.0);
+        Double pMem = v.gerarPor(memoria, 8.0);
+        //pega o valor inteiro da barra com o metodo intValue()
         pbDisco.setValue(pDisco.intValue());
         pbCPU.setValue(pCpu.intValue());
         pbMem.setValue(pMem.intValue());
-        TotalMem += v.getMemoria();
-        totalCpu += v.getCpu();
-        totalDisco += v.getDisco();
-        tfCpu.setText(String.format("%.2f GHz",v.getCpu()));
-        tfDisco.setText(String.format("%.2f GB",v.getDisco()));
-        tfMem.setText(String.format("%.2f GB",v.getMemoria()));
+        // soma todos o valores gerados afim de fazer a média
+        TotalMem += memoria;
+        totalCpu += memoria;
+        totalDisco += memoria;
+        //coloca o texto nas labels com interpolação
+        tfCpu.setText(String.format("Atual: %.2f GHz",cpu));
+        tfDisco.setText(String.format("Atual: %.2f GB",disco));
+        tfMem.setText(String.format("Atual: %.2f GB",memoria));
+         //coloca o texto nas labels com interpolação
         lbMedCPU.setText(String.format("média %.2f",(totalCpu / Cont)));
         lbMedMem.setText(String.format("média %.2f",(TotalMem / Cont)));
         lbMedDisco.setText(String.format("média %.2f",(totalDisco / Cont)));
-        porCpu.setText(String.format("%.1f", pCpu)+ "%");
-        porMem.setText(String.format("%.1f", pMem)+ "%");
-        porDisco.setText(String.format("%.1f",pDisco) + "%");
-        maiorCpu = v.maiorNum(v.getCpu(), maiorCpu);
-        maiorDisco = v.maiorNum(v.getDisco(), maiorDisco);
-        maiorMem = v.maiorNum(v.getMemoria(), maiorMem);
-        minCpu = v.menorNum(v.getCpu(), minCpu);
-        minDisco = v.menorNum(v.getDisco(), minDisco);
-        minMem = v.menorNum(v.getMemoria(), minMem);
+        // coloca o maiores e menores numeros nas respectivas variaveis
+        maiorCpu = v.maiorNum(cpu, maiorCpu);
+        maiorDisco = v.maiorNum(disco, maiorDisco);
+        maiorMem = v.maiorNum(memoria, maiorMem);
+        minCpu = v.menorNum(cpu, minCpu);
+        minDisco = v.menorNum(disco, minDisco);
+        minMem = v.menorNum(memoria, minMem);
+        // coloca nas labels os valores maior e o menor gerado
         lbMaxCPU.setText(String.format("Máximo : %.2f GHz",maiorCpu));
         lbMaxDisco.setText(String.format("Máximo : %.2f GB",maiorDisco));
         lbMaxMem.setText(String.format("Máximo : %.2f GB",maiorMem));
@@ -435,9 +438,6 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JProgressBar pbCPU;
     private javax.swing.JProgressBar pbDisco;
     private javax.swing.JProgressBar pbMem;
-    private javax.swing.JLabel porCpu;
-    private javax.swing.JLabel porDisco;
-    private javax.swing.JLabel porMem;
     private javax.swing.JLabel tfCpu;
     private javax.swing.JLabel tfDisco;
     private javax.swing.JLabel tfMem;
